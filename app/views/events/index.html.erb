@@ -5,7 +5,7 @@
     <tr>
       <th scope="col">Title</th>
       <th scope="col">Body</th>
-      <th scope="col">Day</th>
+      <th scope="col">Event Date</th>
       <th scope="col">Address</th>
       <th scope="col">Edit</th>
       <th scope="col">Destroy</th>
@@ -17,7 +17,7 @@
       <tr>
         <td><%= event.title %></td>
         <td><%= event.body %></td>
-        <td><%= event.day %></td>
+        <td><%= event.day.inspect %></td>
         <td><%= event.address %></td>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
         <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
