@@ -11,7 +11,9 @@
     @event = Event.new
   end
 
-  def edit; end
+  def edit
+    @event = Event.find(params[:id])
+  end
 
   def create
     @event = current_user.events.new(event_params)
@@ -40,11 +42,10 @@
 
 
   def destroy
+    @event = Event.find(params[:id])
     @event.destroy
-    respond_to do |format|
-      format.html { redirect_to events_url, notice: 'event was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+
+    redirect_to root_path
   end
 
   private
