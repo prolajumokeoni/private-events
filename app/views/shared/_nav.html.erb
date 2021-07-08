@@ -16,6 +16,9 @@
       <ul class="nav justify-content-end">
         <% if user_signed_in? %>
         <li class="nav-item">
+            <%= link_to current_user.username, edit_user_registration_path, class: "nav-link text fs-4"%>
+        </li>
+        <li class="nav-item">
           <%= link_to "Logout", destroy_user_session_path, method: :delete, class:"nav-link text-light fs-4" %>
         </li>
         <% else %>
@@ -25,7 +28,6 @@
         <li class="nav-item">
           <%= link_to 'Sign Up', new_user_registration_path, class: "nav-link fs-4" %>
         </li>
-        
         <% end %>
       </ul>
     </div>

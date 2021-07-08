@@ -1,23 +1,43 @@
 <p id="notice"><%= notice %></p>
-<p>
-  <strong>Title:</strong>
-  <%= @event.title %>
-</p>
 
-<p>
-  <strong>Body:</strong>
-  <%= @event.body %>
-</p>
+<div class="card-body">
+  <div class="card-body">
+  <div class="col">
+    <p>
+      <strong>Name of event:</strong>
+      <%= @event.title %>
+    </p>
+  </div>
+      
+   <div class="card-body">
+       <p>
+      <strong>About event:</strong>
+      <%= @event.body %>
+    </p>
+  </div>
+   
+  <div class="card-body">
+    <p>
+      <strong>Event Date:</strong>
+      <%= @event.day %>
+    </p>
+  </div>
 
-<p>
-  <strong>Event Date:</strong>
-  <%= @event.day %>
-</p>
+  <div class="card-body">
+    <p>
+      <strong>Location of event:</strong>
+      <%= @event.address %>
+    </p>
+  </div>
 
-<p>
-  <strong>Address:</strong>
-  <%= @event.address %>
-</p>
+  <div class="card-body">
+    <p>
+      <strong>Author's name:</strong>
+      <%= @event.user.username %>
+    </p>  
+  </div>
+  </div>    
+</div>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
