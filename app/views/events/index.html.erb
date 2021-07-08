@@ -1,29 +1,29 @@
-<h1 class="">welcome to private events</h1>
-
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Title</th>
-      <th scope="col">Body</th>
-      <th scope="col">Event Date</th>
-      <th scope="col">Address</th>
-      <th scope="col">Edit</th>
-      <th scope="col">Destroy</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @events.each do |event| %>
-      <tr>
-        <td><%= event.title %></td>
-        <td><%= event.body %></td>
-        <td><%= event.day.inspect %></td>
-        <td><%= event.address %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<h1 class="">Events created</h1>
+  <% if user_signed_in? %>
+    <div class="container">
+      <div class="row">
+        <div class="col-4 justify-content-start">
+          <div class="card">
+            <% @events.each do |event| %>
+              <div class="card-body">
+                <h5 class="card-title"><%= event.title %></h5>
+                <p class="card-text"><%= event.body %></p>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item"><%= event.day%></li>
+                <li class="list-group-item"><%= event.address %></li>
+              </ul>
+              <div class="card-body">
+                  <%= link_to 'Edit', edit_event_path(event) %>
+                  <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<br>
 
 <br>
+

@@ -4,11 +4,13 @@
     
       <ul class="navbar-nav me-auto mb-2 mb-lg-0"> 
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/">Private Events</a>
+          <a class="nav-link fs-4 text-light active" aria-current="page" href="/">Private Events</a>
         </li>
+        <% if user_signed_in? %>
         <li class="nav-item">
-          <a class="nav-link" href="/events/new">New Events</a>
+          <a class="nav-link fs-4 text-light" href="/events/new">New Events</a>
         </li>
+        <% end %>
       </ul>
       
       <ul class="nav justify-content-end">
