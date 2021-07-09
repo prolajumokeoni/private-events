@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 
 <div class="card-body">
   <div class="card-body">
@@ -38,6 +38,40 @@
   </div>
   </div>    
 </div>
+
+<hr> <h2>Register for event</h2>
+  <ul>
+    <% @event.registers.each do |register| %>
+
+      <p>
+    <strong>email:</strong>
+    <%= register.email %>
+  </p>
+
+  <p>
+    <strong>name:</strong>
+    <%= register.name %>
+  </p>
+
+    <% end %>
+  </ul>
+<hr>
+
+<h2>Register:</h2>
+<%= form_with model: [ @event, @event.registers.build ] do |form| %>
+  <p>
+    <%= form.label :email %><br>
+    <%= form.email_field :email %>
+  </p>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_area :name %>
+  </p>
+  <p>
+    
+    <%= form.submit %>
+  </p>
+  <% end %>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>

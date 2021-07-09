@@ -28,6 +28,7 @@
                   </li>
                 </ul>
                 <div class="card-body">
+                  <%= link_to 'Show', event %>
                   <%= link_to 'Edit', edit_event_path(event) %>
                   <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %>
                 </div>
