@@ -1,6 +1,6 @@
-  class EventsController < ApplicationController
-    before_action :set_event, only: %i[show edit update destroy]
-    def index
+class EventsController < ApplicationController
+  before_action :set_event, only: %i[show edit update destroy]
+  def index
     @events = Event.all
   end
 
@@ -40,7 +40,6 @@
       end
     end
   end
-
 
   def destroy
     @event = Event.find(params[:id])

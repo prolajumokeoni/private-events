@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-
   attr_accessor :login
 
   # Include default devise modules. Others available are:
@@ -9,7 +8,7 @@ class User < ApplicationRecord
 
   has_many :events
   has_many :registers
-  
+
   def self.find_for_database_authentication(warden_condition)
     conditions = warden_condition.dup
     login = conditions.delete(:login)

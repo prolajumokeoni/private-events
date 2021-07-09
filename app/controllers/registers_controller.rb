@@ -7,7 +7,8 @@ class RegistersController < ApplicationController
   end
 
   private
-    def register_params
-      params.require(:register).permit(:email, :name)
-    end
+
+  def register_params
+    params.require(:register).permit(:email, :name)
+  end
 end
