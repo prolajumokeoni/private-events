@@ -53,6 +53,10 @@
     <%= register.name %>
   </p>
 
+  <p>
+    <strong>username:</strong>
+    <%= register.user.username %>
+  </p>
     <% end %>
   </ul>
 <hr>
@@ -67,6 +71,7 @@
     <%= form.label :name %><br>
     <%= form.text_area :name %>
   </p>
+
   <p>
     
     <%= form.submit %>

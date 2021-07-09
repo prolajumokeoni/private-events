@@ -2,7 +2,7 @@ class RegistersController < ApplicationController
   before_action :authenticate_user!
   def create
     @event = Event.find(params[:event_id])
-    @register = @event.registers.create(register_params)
+    @register = @event.registers.create(register_params.merge(user_id: current_user.id))
     redirect_to event_path(@event)
   end
 
