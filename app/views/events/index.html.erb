@@ -2,10 +2,10 @@
   <% if user_signed_in? %>
     <div class="container">
       <div class="row">
-        <div class="col-sm-6">
-          <div class="col">
-            <div class="card">
-              <% @events.each do |event| %>
+        <% @events.each do |event| %>
+          <div class="col-lg-4 col-sm-12">
+            <div class="col">
+              <div class="card">
                 <div class="card-body">
                   <span class="card-title">Name:</span><%= event.title %>
                 </div>
@@ -32,14 +32,16 @@
                   <%= link_to 'Edit', edit_event_path(event) %>
                   <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %>
                 </div>
-              <% end %>
-            </div>
+              </div>
+             </div>
           </div>
-        </div>
+        <% end %> 
       </div>
     </div>
   <% end %>
 <br>
-
 <br>
+
+
+
 
