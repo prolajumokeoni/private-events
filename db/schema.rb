@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_09_082608) do
+ActiveRecord::Schema.define(version: 2021_07_12_183216) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -40,15 +40,25 @@ ActiveRecord::Schema.define(version: 2021_07_09_082608) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "event_authorings", force: :cascade do |t|
+    t.integer "events_id", null: false
+    t.integer "users_id", null: false
+    t.integer "register_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["events_id"], name: "index_event_authorings_on_events_id"
+    t.index ["register_id"], name: "index_event_authorings_on_register_id"
+    t.index ["users_id"], name: "index_event_authorings_on_users_id"
+  end
+
   create_table "events", force: :cascade do |t|
     t.string "title"
     t.text "body"
     t.date "day"
     t.string "address"
-    t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_events_on_user_id"
+    t.integer "creator_id"
   end
 
   create_table "registers", force: :cascade do |t|
@@ -77,7 +87,9 @@ ActiveRecord::Schema.define(version: 2021_07_09_082608) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "events", "users"
+  add_foreign_key "event_authorings", "events", column: "events_id"
+  add_foreign_key "event_authorings", "registers"
+  add_foreign_key "event_authorings", "users", column: "users_id"
   add_foreign_key "registers", "events"
   add_foreign_key "registers", "users"
 end

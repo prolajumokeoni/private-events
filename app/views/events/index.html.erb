@@ -22,10 +22,14 @@
                     <span>Location:</span>
                     <%= event.address %>
                   </li>
-                  <li class="list-group-item">
+                  <%
+=begin%>
+ <li class="list-group-item">
                     <span>Username:</span>
                     <%= event.user.username %>
-                  </li>
+                  </li> 
+<%
+=end%>
                 </ul>
                 <div class="card-body">
                   <%= link_to 'Show', event %>

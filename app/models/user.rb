@@ -6,7 +6,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :events
+  has_many :events, foreign_key: :creator_id
   has_many :registers
 
   def self.find_for_database_authentication(warden_condition)

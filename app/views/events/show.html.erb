@@ -36,12 +36,16 @@
     </p>
   </div>
 
-  <div class="card-body">
+  <%
+=begin%>
+ <div class="card-body">
     <p>
       <strong>Author's name:</strong>
       <%= @event.user.username %>
     </p>  
-  </div>
+  </div> 
+<%
+=end%>
   </div>    
 </div>
 
@@ -59,10 +63,14 @@
     <%= register.name %>
   </p>
 
-  <p>
+  <%
+=begin%>
+ <p>
     <strong>username:</strong>
     <%= register.user.username %>
-  </p>
+  </p> 
+<%
+=end%>
     <% end %>
   </ul>
 <hr>
