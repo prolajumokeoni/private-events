@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :events, foreign_key: :creator_id
   has_many :registers
 
+  has_many :attended_events, through: :registers, source: :event
   def self.find_for_database_authentication(warden_condition)
     conditions = warden_condition.dup
     login = conditions.delete(:login)

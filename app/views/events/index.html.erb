@@ -1,51 +1,25 @@
-<h1 class="">Events created</h1>
-  <% if user_signed_in? %>
-    <div class="container">
-      <div class="row">
-        <% @events.each do |event| %>
-          <div class="col-lg-4 col-sm-12">
-            <div class="col">
-              <div class="card">
-                <div class="card-body">
-                  <span class="card-title">Name:</span><%= event.title %>
-                </div>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item">
-                    <span class="card-text">Description:</span>
-                    <%= event.body %>
-                  </li>
-                  <li class="list-group-item">
-                    <span>Date:</span>
-                    <%= event.day%>
-                  </li>
-                  <li class="list-group-item">
-                    <span>Location:</span>
-                    <%= event.address %>
-                  </li>
-                  <%
-=begin%>
- <li class="list-group-item">
-                    <span>Username:</span>
-                    <%= event.user.username %>
-                  </li> 
-<%
-=end%>
-                </ul>
-                <div class="card-body">
-                  <%= link_to 'Show', event %>
-                  <%= link_to 'Edit', edit_event_path(event) %>
-                  <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %>
-                </div>
-              </div>
-             </div>
-          </div>
-        <% end %> 
-      </div>
-    </div>
+<h1>Events</h1>
+<hr>
+<h2>Upcoming Events</h2>
+<ul>
+  <% @upcoming_events.each do |event| %>
+     <h4><%= link_to event.title, event_path(event.id)%></h4><br>
+      <%= event.body %><br>
+      <%= event.day%><br>
+      <br>Attendees : <%= event.attendees.count %></small> 
+   
+    <br>
   <% end %>
-<br>
-<br>
+</ul>
 
-
-
-
+<h1>Past Events</h1>
+<ul>
+  <% @past_events.each do |event| %>
+  
+      <h4><%= link_to event.title, event_path(event.id)%></h4><br>
+      
+      <br>Attendees : <%= event.attendees.count %></small> 
+    
+    <br>
+  <% end %>
+</ul>

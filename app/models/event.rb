@@ -4,6 +4,7 @@ class Event < ApplicationRecord
   belongs_to :creator, class_name: "User"
   has_one_attached :event_photo
 
-  scope :upcoming, -> { where('date >= ?', Time.zone.now) }
-  scope :previous, -> { where('date < ?', Time.zone.now) }
+  has_many :attendees, through: :registers, source: :user
+  scope :upcoming_events, -> { where('day >= ?', Date.today) }
+  scope :previous_events, -> { where('day < ?', Date.today) }
 end

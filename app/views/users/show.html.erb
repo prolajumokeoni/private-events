@@ -1,0 +1,54 @@
+
+<h1>My Events</h1>
+<% @created_events.each do |event| %>
+<p>
+  <strong>Name:</strong>
+  <%= event.title %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= event.day %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= event.address %>
+</p>
+<% end %>
+
+<h1> Upcoming events to be attended</h1>
+<% @upcoming_events.each do |attend| %>
+    <p>
+      <strong>Name:</strong>
+      <%= attend.title %>
+    </p>
+
+    <p>
+      <strong>Date:</strong>
+      <%= attend.day %>
+    </p>
+
+    <p>
+      <strong>Location:</strong>
+      <%= attend.address %>
+    </p>
+<% end %>
+
+<h1> Previous events attended</h1>
+<% @past_events.each do |attend| %>
+    <p>
+      <strong>Name:</strong>
+      <%= attend.title %>
+    </p>
+
+    <p>
+      <strong>Date:</strong>
+      <%= attend.date %>
+    </p>
+
+    <p>
+      <strong>Location:</strong>
+      <%= attend.location %>
+    </p>
+<% end %>
