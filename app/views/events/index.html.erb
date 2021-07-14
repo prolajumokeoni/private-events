@@ -1,26 +1,38 @@
 <h1>Events</h1>
 <hr>
-<% if user_signed_in?%>
-<h2>Upcoming Events</h2>
-  <% @upcoming_events.each do |event| %>
-     <h4><%= link_to event.title, event_path(event.id)%></h4>
-      <%= event.body %><br>
-      <%= event.day%><br>
-      <br>Attendees : <%= event.attendees.count %></small> <br>
-   
-    <br>
-  <% end %>
+<div class="container">
+  <div class="row">
+    <div class="col">
+        <% if user_signed_in?%>
+        <h2>Upcoming Events</h2>
+          <% @upcoming_events.each do |event| %>
+        <h4><%= link_to event.title, event_path(event.id)%></h4>
+          <%= event.body %><br>
+          <%= event.day%><br>
+          <br>Attendees : <%= event.attendees.count %></small> <br>
+          
+            <br>
+          <% end %>
   
+    </div>
+    <div class="col">
+     <h1>Past Events</h1>
+      <% @past_events.each do |event| %>
+      
+          <h4><%= link_to event.title, event_path(event.id)%></h4>
+          <%= event.body %><br>
+          <%= event.day%><br>
+          <small>Attendees : <%= event.attendees.count %></small> <br>
+        
+        <br>
+      <% end %>
 
-<h1>Past Events</h1>
-  <% @past_events.each do |event| %>
-  
-      <h4><%= link_to event.title, event_path(event.id)%></h4>
-       <%= event.body %><br>
-      <%= event.day%><br>
-      <small>Attendees : <%= event.attendees.count %></small> <br>
-    
-    <br>
-  <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
 
-  <% end %>
+
+
+
+
