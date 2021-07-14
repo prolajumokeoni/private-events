@@ -4,11 +4,8 @@ class RegistersController < ApplicationController
     event = Event.find(params[:event_id])
     @register = Register.new(event_id: event.id, user_id: current_user.id)
 
-    if Register.where(user_id: current_user.id, event_id: params[:event_id]).exists?
-      redirect_to event_path(event)
-      return
-    end
-
+    redirect_to event_path(event) if Register.where(user_id: current_user.id, event_id: params[:event_id]).exists?
+    nil
   end
 
   private
